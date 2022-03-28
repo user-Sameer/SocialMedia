@@ -1,4 +1,1 @@
-release: python manage.py makemigrations --no-input
-release: python manage.py migrate --no-input
-
-web: guunicorn SM.wsgi
+web: guunicorn SM.wsgi --log-file -
