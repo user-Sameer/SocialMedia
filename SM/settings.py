@@ -29,9 +29,9 @@ STATIC_URL = 'static/'
 SECRET_KEY = 'django-insecure-vd2w)g_d@nu!b4&1*wkxw!8hxe0#v==u_%cotsmudrj_0y1l9='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['socialmdia111.herokuapp.com/','127.0.0.1',]
 
 
 # Application definition
