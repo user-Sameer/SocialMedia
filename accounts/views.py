@@ -35,12 +35,12 @@ class FollowUser(APIView):
         userinstance=get_user_model().objects.get(pk=request.user.id)
         followinginstance=get_user_model().objects.get(pk=pk)
         UserFollowing.objects.create(user_id=userinstance,following_user_id=followinginstance)
-        return Response({'msg':'Data Created Succesfully'})
+        return Response({'msg':'User Followed Succesfully'})
 
 class UnfollowUser(APIView):
-    def delete(self,request,pk,formate=None):
+    def post(self,request,pk,formate=None):
         detleteinstance=UserFollowing.objects.filter(user_id=request.user.id,following_user_id=pk)
         detleteinstance.delete()
-        return Response({'msg':'Data Deleted Successfully'})
+        return Response({'msg':'User Unfollowed Successfully'})
 
 

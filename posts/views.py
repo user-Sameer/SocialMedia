@@ -36,7 +36,7 @@ class CreatePost(APIView):
 #         return Response({'msg':'Data Deleted Succesfully'})
 
 class LikePost(APIView):
-    def patch(self,request,pk,format=None):
+    def post(self,request,pk,format=None):
         likepost=Posts.objects.get(pk=pk)
         likepost.likes=likepost.likes+1
         likepost.save()
@@ -44,7 +44,7 @@ class LikePost(APIView):
         
 
 class UnlikePost(APIView):
-    def patch(self,request,pk,format=None):
+    def post(self,request,pk,format=None):
         unlikepost=Posts.objects.get(pk=pk)
         if(unlikepost.likes>0):
             unlikepost.likes=unlikepost.likes-1
@@ -77,7 +77,7 @@ def GetPostDelete(request,pk):
     if request.method=="DELETE":
         deletepost=Posts.objects.get(pk=pk)
         deletepost.delete()
-        return Response({'msg':'Data Deleted Succesfully'})  
+        return Response({'msg':'Post Deleted Succesfully'})  
 
     if request.method=="GET": 
         singlepost=Posts.objects.get(pk=pk)
